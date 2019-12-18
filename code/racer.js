@@ -59,7 +59,7 @@ receiveUDPMessage.on('message', (message, rinfo) => {
         // Kill process
         process.exit(0)
     } else {
-        console.log(`\x1b[33m<== [${Date.now()} --- ${rinfo.address}:${rinfo.port}] -- ${message}\x1b[0m`)
+        console.log(`\x1b[33m${process.env.NAME}<== [${Date.now()} --- ${rinfo.address}:${rinfo.port}] -- ${message}\x1b[0m`)
         let slope = parseInt(messageParams[0])
         let constant = parseInt(messageParams[1])
         // Set 50ms location updater
