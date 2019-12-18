@@ -1,6 +1,6 @@
 # O4S Line Racer
 
-All 3 processes `[M, R1, R2]` execute inside their own Docker containers.
+All 3 processes `[M, R1, R2]` execute inside their own Docker containers. The output also contains the average latency for each lap for both racers.
 
 ## Run instructions:
 
