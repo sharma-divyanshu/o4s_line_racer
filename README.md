@@ -11,15 +11,15 @@ Then, pick the version of docker-compose file to run:
 ```bash
 $ docker-compose up
 ```
-* [docker-compose_alternative.yaml](https://github.com/sharma-divyanshu/o4s_line_racer/blob/master/docker-compose_alternative.yaml) starts the containers for `[M, R1, R2]` but **does not** start the processes. Manually start all three processes by accessing the containers.
+* [docker-compose_alternative.yaml](https://github.com/sharma-divyanshu/o4s_line_racer/blob/master/docker-compose_alternative.yaml) starts the containers for `[M, R1, R2]` but **does not** start the processes. Manually start all three processes by accessing the containers. _(Run node processes for racer1 and racer2 before running master)_ 
 ```bash
 $ docker-compose -f docker-compose_alternate.yaml up -d
 ```
   - For `racer1` and `racer2`:
-```bash
-$ docker exec -it racer1/racer2 bash
-$ node o4s/code/racer.js
-```
+  ```bash
+  $ docker exec -it racer1/racer2 bash
+  $ node o4s/code/racer.js
+  ```
   - For `master`:
 ```bash
 $ docker exec -it master bash
