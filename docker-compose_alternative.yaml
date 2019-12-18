@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   master:
-    container_name: M
+    container_name: master
     image: node:latest
     restart: always
     stdin_open: true

@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   master:
-    container_name: M
+    container_name: master
     build: .
     restart: always
     stdin_open: true
@@ -20,7 +20,7 @@ services:
 
 
   racer1:
-    container_name: R1
+    container_name: racer1
     build: 
       context: .
       dockerfile: ./racerDockerfile
@@ -36,7 +36,7 @@ services:
       ["myvnet"]
 
   racer2:
-    container_name: R2
+    container_name: racer2
     build: 
       context: .
       dockerfile: ./racerDockerfile
