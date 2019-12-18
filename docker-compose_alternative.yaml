@@ -1,0 +1,64 @@
+version: '3.5'
+
+services:
+  master:
+    container_name: master
+    image: node:latest
+    restart: always
+    stdin_open: true
+    tty: true
+    environment: 
+      UDP_SEND_IP_R1: "172.31.1.2"
+      UDP_SEND_IP_R2: "172.31.1.3"
+      UDP_SEND_PORT: "5000"
+      UDP_RECEIVE_PORT: "5001"
+      UDP_RECEIVE_IP: "172.31.1.4"
+    volumes:
+      - .:/code
+    networks:
+      ["myvnet"]
+    depends_on:
+      [racer1, racer2]
+
+
+  racer1:
+    container_name: racer1
+    image: node:latest
+    stdin_open: true
+    tty: true
+    environment: 
+      RACER_UDP_IP: "172.31.1.2"
+      UDP_RECEIVE_PORT: "5000"
+      UDP_SEND_PORT: "5001"
+      UDP_SEND_IP: "172.31.1.4"
+      NAME: "R1"
+    volumes:
+      - .:/code
+    networks:
+      ["myvnet"]
+
+  racer2:
+    container_name: racer2
+    image: node:latest
+    stdin_open: true
+    tty: true
+    environment: 
+      RACER_UDP_IP: "172.31.1.3"
+      UDP_RECEIVE_PORT: "5000"
+      UDP_SEND_PORT: "5001"
+      UDP_SEND_IP: "172.31.1.4"
+      NAME: "R2"
+    volumes:
+      - .:/code
+    networks:
+      ["myvnet"]
+    depends_on: 
+      - racer1
+
+networks:
+  myvnet:
+    name: myvnet
+    driver: bridge
+    ipam:
+      config:
+        - subnet: '172.31.1.0/24'
