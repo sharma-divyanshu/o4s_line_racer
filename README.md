@@ -25,4 +25,4 @@ $ node o4s/code/racer.js
 $ docker exec -it M bash
 $ node o4s/code/master.js
 ```
-Output of the master process's last run (M) is saved in `/o4s/master.log` on the M container. Each line of the log is of format `[LapNumber.`<code>[(m<sub>1</sub>, c<sub>1</sub>), (m<sub>2</sub>, c<sub>2</sub>)]</code>`, LapStart, LapEnd, TimeToCompletion, AverageLatencyR1, AverageLatencyR2]`, and sorted by the TimeToCompletion in ascending order.
+Output of the master (M) process's last run is saved in `/o4s/master.log` on the master container. Each line of the log is of format `[LapNumber.`<code>[(m<sub>1</sub>, c<sub>1</sub>), (m<sub>2</sub>, c<sub>2</sub>)]</code>`, LapStart, LapEnd, TimeToCompletion, AverageLatencyR1, AverageLatencyR2]`, and sorted by the TimeToCompletion in ascending order.
