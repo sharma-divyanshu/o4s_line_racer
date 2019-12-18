@@ -9,7 +9,6 @@ const UDP_RECEIVE_PORT = process.env.UDP_RECEIVE_PORT
 const UDP_RECEIVE_IP = process.env.UDP_RECEIVE_IP
 const RACER_IP = [UDP_SEND_IP_R1, UDP_SEND_IP_R2]
 
-
 logArray = []
 
 stepCounter = 0

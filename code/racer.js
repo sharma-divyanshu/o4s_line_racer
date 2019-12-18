@@ -33,20 +33,16 @@ receiveUDPMessage.on('message', (message, rinfo) => {
         now = new Date().getTime() + interval;
         nextAt = now;
         timeout = null;
-    
         wrapper = wrapper = () => {
             var scheduledTime = nextAt;
             nextAt += interval;
             timeout = setTimeout(wrapper, nextAt - new Date().getTime());
             func(scheduledTime);
         };
-    
         clear = clear = () => {
             return clearTimeout(timeout);
         };
-    
-        timeout = setTimeout(wrapper, nextAt - new Date().getTime());
-    
+        timeout = setTimeout(wrapper, nextAt - new Date().getTime()); 
         return {
             clear: clear
         };
