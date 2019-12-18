@@ -106,7 +106,7 @@ receiveUDPMessage.on('message', (message, rinfo) => {
         R2Flag = false
     }
 
-    // Check which racer the message is from, call completeIncrement() after receiving POS from both
+    // Check which racer the message is from, call completeIncrement() after receiving POS messages from both
     if (rinfo.address === UDP_SEND_IP_R1) {
         R1_y = parseInt(message)
         let currentLatencyR1 = Date.now() - R1lapStartTime - 50 * (stepCounter + 1)
