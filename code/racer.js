@@ -62,6 +62,7 @@ receiveUDPMessage.on('message', (message, rinfo) => {
         console.log(`\x1b[33m<== [${Date.now()} --- ${rinfo.address}:${rinfo.port}] -- ${message}\x1b[0m`)
         let slope = parseInt(messageParams[0])
         let constant = parseInt(messageParams[1])
+        // Set 50ms location updater
         accurateInterval(() => incrementX(slope, constant), 50)
     }
 })

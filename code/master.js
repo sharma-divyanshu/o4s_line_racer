@@ -97,7 +97,7 @@ receiveUDPMessage.on('message', (message, rinfo) => {
                 // Send message to kill racers
                 RACER_IP.forEach(value => sendUDPMessage('x,' + 'x', value, UDP_SEND_PORT))
                 // Output log
-                fs.writeFile('./master.log', writeString, (err) => {
+                fs.writeFile('../master.log', writeString, (err) => {
                     if (err) console.log("Error writing logs", err)
                     console.log(writeString)
                 })

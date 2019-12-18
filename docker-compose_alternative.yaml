@@ -1,8 +1,8 @@
-version: '3.5'
+version: '3.7'
 
 services:
   master:
-    container_name: master
+    container_name: M
     image: node:latest
     restart: always
     stdin_open: true
@@ -14,7 +14,7 @@ services:
       UDP_RECEIVE_PORT: "5001"
       UDP_RECEIVE_IP: "172.31.1.4"
     volumes:
-      - .:/code
+      - .:/o4s
     networks:
       ["myvnet"]
     depends_on:
@@ -33,7 +33,7 @@ services:
       UDP_SEND_IP: "172.31.1.4"
       NAME: "R1"
     volumes:
-      - .:/code
+      - .:/o4s
     networks:
       ["myvnet"]
 
@@ -49,7 +49,7 @@ services:
       UDP_SEND_IP: "172.31.1.4"
       NAME: "R2"
     volumes:
-      - .:/code
+      - .:/o4s
     networks:
       ["myvnet"]
     depends_on: 

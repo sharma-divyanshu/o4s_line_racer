@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   master:
-    container_name: master
+    container_name: M
     build: .
     restart: always
     stdin_open: true
