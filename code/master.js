@@ -32,6 +32,7 @@ averageLatencyR1 = 0
 averageLatencyR2 = 0
 
 const startNewLap = () => {
+    
     // Generate random coordinates between (0, 10)
     const generateRandom = () => {
         return Math.floor(Math.random() * 10)
@@ -91,9 +92,7 @@ receiveUDPMessage.on('message', (message, rinfo) => {
             else {
                 logArray.sort((a, b) => a[7] - b[7])
                 let stringArray = logArray.map(element => `${element[0]}. [(${element[1]}, ${element[2]}), (${element[3]}, ${element[4]})], ${element[5]}, ${element[6]}, ${element[7]}, ${element[8]}, ${element[9]}` + '\n')
-                let writeString = stringArray.reduce((total, current) => {
-                    return total + current
-                }, '')
+                let writeString = stringArray.reduce((total, current) => total + current, '')
                 // Send message to kill racers
                 RACER_IP.forEach(value => sendUDPMessage('x,' + 'x', value, UDP_SEND_PORT))
                 // Output log
@@ -125,6 +124,7 @@ receiveUDPMessage.on('message', (message, rinfo) => {
     }
 })
 
+// Bind to UDP socket
 receiveUDPMessage.bind(UDP_RECEIVE_PORT, UDP_RECEIVE_IP, () => {
     console.log(`Master listening on ${receiveUDPMessage.address().address} and port ${receiveUDPMessage.address().port}`)
     startNewLap()
