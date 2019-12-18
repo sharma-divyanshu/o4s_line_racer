@@ -17,7 +17,7 @@ $ docker-compose -f docker-compose_alternate.yaml up -d
 ```
   - For R1 and R2:
 ```bash
-$ docker exec -it <R1/R2> bash
+$ docker exec -it R1/R2 bash
 $ node o4s/code/racer.js
 ```
   - For M:
