@@ -7,7 +7,7 @@ All 3 processes `[M, R1, R2]` execute inside their own Docker containers. The ou
 Before running, [download and install Docker](https://www.docker.com/products/docker-desktop) and [Docker Compose](https://docs.docker.com/compose/install/)
 
 Then, pick the version of docker-compose file to run:
-* [docker-compose.yaml](https://github.com/sharma-divyanshu/o4s_line_racer/blob/master/docker-compose.yaml) starts the containers for `[M, R1, R2]` and starts the processes. When `racer1` and `racer2` exit, the containers are stopped automatically. The STDOUT from all three processes will be piped to the host.
+* [docker-compose.yaml](https://github.com/sharma-divyanshu/o4s_line_racer/blob/master/docker-compose.yaml) starts the containers for `[M, R1, R2]` and starts the processes. When `racer1` and `racer2` processes exit, the containers are stopped automatically. The **STDOUT** from all three processes will be piped to the host terminal. _(If you want to run it in detached mode, add flag `-d` and access the master container to see the log file at `/o4s/master.log`)_
 ```bash
 $ docker-compose up
 ```
