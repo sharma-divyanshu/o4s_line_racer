@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require('fs')
 const { sendUDPMessage } = require("../communication_functions/send")
 const { receiveUDPMessage } = require("../communication_functions/receive")
