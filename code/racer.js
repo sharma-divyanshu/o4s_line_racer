@@ -6,9 +6,7 @@ const UDP_RECEIVE_PORT = process.env.UDP_RECEIVE_PORT
 const UDP_SEND_PORT = process.env.UDP_SEND_PORT
 const UDP_SEND_IP = process.env.UDP_SEND_IP
 
-intervalRefreshFlag = false
-refreshInterval = null
-timeout = null
+let timeout = null
 
 receiveUDPMessage.on('message', (message, rinfo) => {
 
@@ -19,7 +17,6 @@ receiveUDPMessage.on('message', (message, rinfo) => {
 
     // Increment value of x-coordinate
     const incrementX = (slope, constant) => {
-        intervalRefreshFlag = true
         x += 1
         sendUDPMessage(calculateY(slope, constant), UDP_SEND_IP, UDP_SEND_PORT, (err, messageSent) => {
             if (err) console.log("Error")

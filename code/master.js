@@ -9,26 +9,26 @@ const UDP_RECEIVE_PORT = process.env.UDP_RECEIVE_PORT
 const UDP_RECEIVE_IP = process.env.UDP_RECEIVE_IP
 const RACER_IP = [UDP_SEND_IP_R1, UDP_SEND_IP_R2]
 
-logArray = []
+let logArray = []
 
-stepCounter = 0
-lapCounter = 0
+let stepCounter = 0
+let lapCounter = 0
 
-lapStartTime = 0
-R1lapStartTime = 0
-R2lapStartTime = 0
+let lapStartTime = 0
+let R1lapStartTime = 0
+let R2lapStartTime = 0
 
-slope = []
-constant = []
+let slope = []
+let constant = []
 
-R1_y = 0
-R2_y = 0
+let R1_y = 0
+let R2_y = 0
 
-R1Flag = false
-R2Flag = false
+let R1Flag = false
+let R2Flag = false
 
-averageLatencyR1 = 0
-averageLatencyR2 = 0
+let averageLatencyR1 = 0
+let averageLatencyR2 = 0
 
 const startNewLap = () => {
     
