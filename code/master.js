@@ -32,6 +32,21 @@ let R2Flag = false
 let averageLatencyR1 = 0
 let averageLatencyR2 = 0
 
+const lapInitiation = (slope, constant) => {
+
+    // Store lap start time
+    lapStartTime = Date.now()
+    // Send new lap message to racers
+    let promiseArray = RACER_IP.map((element, index) => sendUDPMessage(slope[index] + "," + constant[index], element, UDP_SEND_PORT))
+    // Store lap start times for each racer
+    promiseArray[0]
+        .then(() => R1lapStartTime = Date.now())
+        .catch(e => console.log("Error sending to R1", e))
+    promiseArray[1]
+        .then(() => R2lapStartTime = Date.now())
+        .catch(e => console.log("Error sending to R2", e))
+}
+
 const startNewLap = () => {
     
     // Generate random coordinates between (0, 10)
@@ -56,21 +71,6 @@ const startNewLap = () => {
 
     // Send new values to racers
     lapInitiation(slope, constant)
-}
-
-const lapInitiation = (slope, constant) => {
-
-    // Store lap start time
-    lapStartTime = Date.now()
-    // Send new lap message to racers
-    let promiseArray = RACER_IP.map((element, index) => sendUDPMessage(slope[index] + "," + constant[index], element, UDP_SEND_PORT))
-    // Store lap start times for each racer
-    promiseArray[0]
-        .then(() => R1lapStartTime = Date.now())
-        .catch(e => console.log("Error sending to R1", e))
-    promiseArray[1]
-        .then(() => R2lapStartTime = Date.now())
-        .catch(e => console.log("Error sending to R2", e))
 }
 
 receiveUDPMessage.on('message', (message, rinfo) => {
